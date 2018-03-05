@@ -74,12 +74,12 @@ table.pieces td, table.guides td {
 }
 
 .winCol.empty::before, .tieCol.empty::before{
-  content: "🡻";
+  content: "⯆";
   display: block;
   position: relative;
   font-size: 25px;
   font-weight: bold;
-  left: 21px;
+  left: 23px;
   top: 17px;
 }
 
