@@ -1,0 +1,43 @@
+4432852959361
+
+negamax: 42587.426025390625ms
+movefinder.js:17 52439752 board evals
+movefinder.js:18 26409184 boards cached, 12417978 collisions
+movefinder.js:19 board value 1
+index.html:60 2
+
+negamax: 39360.25ms
+movefinder.js:17 52551394 board evals
+movefinder.js:18 26441867 boards cached, 12454012 collisions
+movefinder.js:19 board value 1
+index.html:60 2
+
+negamax: 35015.520263671875ms
+movefinder.js:18 52551394 board evals
+movefinder.js:19 26441867 boards cached, 12454012 collisions
+movefinder.js:20 board value 1
+index.html:60 2
+
+
+4432718741633
+negamax: 1075735.8229980469ms
+movefinder.js:17 1488421705 board evals
+movefinder.js:18 49978341 boards cached, 1015396598 collisions
+movefinder.js:22 board value 1
+index.html:60 3
+
+4432676798593
+negamax: 6035633.613037109ms
+movefinder.js:17 7823364031 board evals
+movefinder.js:18 49979687 boards cached, 5557945920 collisions
+movefinder.js:22 board value 1
+index.html:60 3
+
+
+
+4432852959361
+negamax: 26022.568115234375ms
+movefinder.js:17 52551394 board evals
+movefinder.js:18 26441867 boards cached, 12454012 collisions
+movefinder.js:22 board value 1
+index.html:60 2

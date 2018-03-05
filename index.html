@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="earlygame.js"></script>
+  <script src="fastboard.js"></script>
+  <script src="render.js"></script>
+  <script src="movefinder.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Connect 4</title>
+</head>
+<body>
+<script>
+  let guidesEl = setUpGuides();
+  document.body.appendChild(guidesEl);
+  let piecesEl = setUpPieces();
+  document.body.appendChild(piecesEl);
+  let boardEl = setUpBoard();
+  document.body.appendChild(boardEl);
+
+  let board;
+  let moveFinder = new MoveFinder(new Worker('moveworker.js'));
+  function updateBoard() {
+    if (window.location.hash && !isNaN(window.location.hash.substring(1))) {
+      let n = Number(window.location.hash.substring(1));
+      if (!board || board.bits != n) {
+        board = Board.parse(n);
+      }
+    } else {
+      board = Board.empty();
+      window.location.hash = board.bits;
+    }
+    moveFinder.calculate(board).then(() => {
+      showBoard(piecesEl, guidesEl, board, moveFinder);
+    });
+    showBoard(piecesEl, guidesEl, board, moveFinder);
+  }
+  updateBoard();
+  window.onhashchange = updateBoard;
+
+  boardEl.onclick = (e) => {
+    let target = e.target;
+    while (target.tagName != 'TD' && (target = target.parentElement));
+    if (!target) {
+      return;
+    }
+    let i = 0;
+    while (target = target.previousSibling) {
+      i++;
+    }
+    if (e.ctrlKey) {
+      board.remove(i, board.next);
+    } else {
+      board.move(i, board.next);
+    }
+    window.location.hash = board.bits;
+  };
+</script>
+</body>
+</html>

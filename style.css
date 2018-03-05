@@ -1,0 +1,141 @@
+table {
+  position: absolute;
+  border-collapse: collapse;
+  border: 0;
+}
+
+table.board td {
+  padding: 0;
+  border: 4px solid #33f;
+  position: relative;
+  width: 70px;
+  height: 70px;
+  clip-path: inset(0 0 0 0);
+}
+
+table.board td div {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 68px;
+  height: 68px;
+  border-radius: 200px;
+  box-shadow: 0px 0px 0px 100px #33f;
+}
+
+table.pieces td, table.guides td {
+  padding: 0;
+  border: 4px solid transparent;
+  width: 70px;
+  height: 70px;
+}
+
+.above {
+  visibility: hidden;
+}
+
+.empty {
+  width: 70px;
+  height: 70px;
+  border: 0;
+  border-style: solid;
+  border-radius: 70px;
+  background: white;
+}
+
+.red, .yellow {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+  width: 50px;
+  height: 50px;
+  border-width: 10px;
+  border-style: solid;
+  border-radius: 50px;
+  border-color: rgba(0,0,0,.1);
+}
+
+.yellow {
+  background: #fc0;
+}
+
+.red {
+  background: crimson;
+}
+
+.winCol.empty {
+  background-color: LightBlue;
+  color: CornflowerBlue;
+}
+
+.tieCol.empty {
+  background-color: PaleGoldenRod;
+  color: GoldenRod;
+}
+
+.winCol.empty::before, .tieCol.empty::before{
+  content: "🡻";
+  display: block;
+  position: relative;
+  font-size: 25px;
+  font-weight: bold;
+  left: 21px;
+  top: 17px;
+}
+
+.winMove {
+  border-color: white;
+}
+
+.winMove::before, .win::before {
+  content: "★";
+  color: rgba(255,255,255,.9);
+  display: block;
+  position: relative;
+  font-size: 36px;
+  font-weight: bold;
+  left: 10px;
+  top: -1px;
+}
+
+.empty.calculating {
+  animation-duration: .25s;
+  animation-name: calculate;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes calculate {
+  from {
+    background-color: #fff;
+  }
+  
+  to {
+    background-color: CornflowerBlue;
+  }
+}
+
+
+.shake {
+  animation-duration: 150ms;
+  animation-name: shake;
+  animation-iteration-count: 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-15px);
+  }
+
+  75% {
+    transform: translateY(2px);
+  }
+  
+  100% {
+    transform: translateY(0px);
+  }
+}
