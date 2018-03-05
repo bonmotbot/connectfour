@@ -65,22 +65,13 @@ table.pieces td, table.guides td {
 
 .winCol.empty {
   background-color: LightBlue;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M15 18 l20 20, 20 -20, 0 15, -20 20, -20 -20Z" fill="CornflowerBlue"/></svg>');
   color: CornflowerBlue;
 }
 
 .tieCol.empty {
   background-color: PaleGoldenRod;
-  color: GoldenRod;
-}
-
-.winCol.empty::before, .tieCol.empty::before{
-  content: "⯆";
-  display: block;
-  position: relative;
-  font-size: 25px;
-  font-weight: bold;
-  left: 23px;
-  top: 17px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><path d="M15 18 l20 20, 20 -20, 0 15, -20 20, -20 -20Z" fill="GoldenRod"/></svg>');
 }
 
 .winMove {
